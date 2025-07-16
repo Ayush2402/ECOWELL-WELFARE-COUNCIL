@@ -108,7 +108,7 @@ if (contactForm) {
     });
 }
 
-// Volunteer form handling
+// Volunteer form handling (dynamic)
 const volunteerForm = document.querySelector('.volunteer-form');
 if (volunteerForm) {
     volunteerForm.addEventListener('submit', async function(e) {
@@ -140,7 +140,7 @@ if (volunteerForm) {
     });
 }
 
-// Newsletter form handling
+// Newsletter form handling (dynamic)
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) {
     newsletterForm.addEventListener('submit', async function(e) {
@@ -173,13 +173,6 @@ if (newsletterForm) {
 // Button click handlers
 document.addEventListener('DOMContentLoaded', () => {
     // Start Investing buttons
-    const startInvestingBtns = document.querySelectorAll('.btn-primary');
-    startInvestingBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            alert('Thank you for your interest! Our investment platform will be launching soon. Please contact us for more information.');
-        });
-    });
-    
     // Learn More buttons
     const learnMoreBtns = document.querySelectorAll('.btn-secondary');
     learnMoreBtns.forEach(btn => {
@@ -340,3 +333,62 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 } 
+
+// Dynamic rendering for stats, blog, and events
+
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Render Stats ---
+  fetch('http://localhost:5000/api/stats')
+    .then(res => res.json())
+    .then(stats => {
+      const container = document.getElementById('stats-container');
+      if (container) {
+        container.innerHTML = stats.map(stat => `
+          <div class="stat-item">
+            <i class="${stat.icon} stat-icon"></i>
+            <div class="stat-number">${stat.value}</div>
+            <div class="stat-label">${stat.label}</div>
+            <div class="stat-desc">${stat.desc}</div>
+          </div>
+        `).join('');
+      }
+    });
+
+  // --- Render Blog ---
+  fetch('http://localhost:5000/api/blog')
+    .then(res => res.json())
+    .then(posts => {
+      const container = document.getElementById('blog-container');
+      if (container) {
+        container.innerHTML = posts.map(post => `
+          <div class="blog-card">
+            <i class="${post.icon} blog-icon"></i>
+            <div class="blog-meta">${post.date} • ${post.category}</div>
+            <h3 class="blog-title">${post.title}</h3>
+            <p class="blog-summary">${post.summary}</p>
+            <a href="#" class="btn btn-secondary">Read More</a>
+          </div>
+        `).join('');
+      }
+    });
+
+  // --- Render Events ---
+  fetch('http://localhost:5000/api/events')
+    .then(res => res.json())
+    .then(events => {
+      const container = document.getElementById('events-container');
+      if (container) {
+        if (events.length === 0) {
+          container.innerHTML = '<p class="coming-soon-text">Our events and programs are coming soon! Stay tuned for updates on campaigns, workshops, and community activities as we launch ECOWELL WELFARE COUNCIL.</p>';
+        } else {
+          container.innerHTML = events.map(event => `
+            <div class="event-card">
+              <div class="event-date">${event.date}</div>
+              <div class="event-title">${event.title}</div>
+              <div class="event-summary">${event.desc}</div>
+            </div>
+          `).join('');
+        }
+      }
+    });
+}); 

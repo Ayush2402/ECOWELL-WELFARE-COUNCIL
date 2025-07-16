@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ECOWELL WELFARE COUNCIL</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background: #f4f8f4; }
+        .admin-section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin: 2rem auto; padding: 2rem; max-width: 900px; }
+        .admin-section h2 { margin-bottom: 1rem; }
+        .admin-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+        .admin-table th, .admin-table td { border: 1px solid #e0e0e0; padding: 0.7rem; text-align: left; }
+        .admin-table th { background: #e8f5e8; }
+        .admin-actions button { margin-right: 0.5rem; }
+        .admin-form input, .admin-form textarea { margin-bottom: 0.5rem; width: 100%; padding: 0.5rem; }
+        .admin-form button { margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div id="admin-auth-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;">
+        <div style="background:#fff;padding:2rem 2.5rem;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;">
+            <h2>Admin Login</h2>
+            <input type="password" id="admin-password" placeholder="Enter admin password" style="padding:0.5rem;width:100%;margin-bottom:1rem;">
+            <button onclick="checkAdminPassword()" style="padding:0.5rem 2rem;">Login</button>
+            <div id="admin-auth-error" style="color:red;margin-top:0.5rem;display:none;">Incorrect password. Try again.</div>
+        </div>
+    </div>
+    <div class="admin-section">
+        <h2>Newsletter Signups</h2>
+        <table class="admin-table" id="newsletter-table">
+            <thead><tr><th>Email</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="admin-section">
+        <h2>Volunteer Submissions</h2>
+        <table class="admin-table" id="volunteer-table">
+            <thead><tr><th>Name</th><th>Email</th><th>Message</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="admin-section">
+        <h2>Pollution Statistics</h2>
+        <table class="admin-table" id="stats-table">
+            <thead><tr><th>Icon</th><th>Value</th><th>Label</th><th>Description</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+        </table>
+        <form class="admin-form" id="add-stat-form">
+            <input type="text" placeholder="Icon class (e.g. fas fa-wind)" required>
+            <input type="text" placeholder="Value (e.g. 8M)" required>
+            <input type="text" placeholder="Label" required>
+            <input type="text" placeholder="Description" required>
+            <button type="submit">Add Stat</button>
+        </form>
+    </div>
+    <div class="admin-section">
+        <h2>Blog Posts</h2>
+        <table class="admin-table" id="blog-table">
+            <thead><tr><th>Icon</th><th>Date</th><th>Category</th><th>Title</th><th>Summary</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+        </table>
+        <form class="admin-form" id="add-blog-form">
+            <input type="text" placeholder="Icon class (e.g. fas fa-globe)" required>
+            <input type="text" placeholder="Date" required>
+            <input type="text" placeholder="Category" required>
+            <input type="text" placeholder="Title" required>
+            <textarea placeholder="Summary" required></textarea>
+            <button type="submit">Add Blog Post</button>
+        </form>
+    </div>
+    <div class="admin-section">
+        <h2>Events</h2>
+        <table class="admin-table" id="events-table">
+            <thead><tr><th>Title</th><th>Date</th><th>Description</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+        </table>
+        <form class="admin-form" id="add-event-form">
+            <input type="text" placeholder="Title" required>
+            <input type="date" placeholder="Date" required>
+            <input type="text" placeholder="Description" required>
+            <button type="submit">Add Event</button>
+        </form>
+    </div>
+    <script src="admin.js"></script>
+    <script>
+        function checkAdminPassword() {
+            const password = document.getElementById('admin-password').value;
+            if (password === 'yourpassword') {
+                document.getElementById('admin-auth-overlay').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            } else {
+                document.getElementById('admin-auth-error').style.display = 'block';
+            }
+        }
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('admin-auth-overlay').style.display = 'flex';
+        });
+    </script>
+</body>
+</html> 

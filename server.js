@@ -7,8 +7,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/ecowell', { useNewUrlParser: true, useUnifiedTopology: true });
+// Connect to MongoDB Atlas
+mongoose.connect('mongodb+srv://ecowellwelfarecouncil:1tiopsG7m5o5vNY0@cluster0.floqvs6.mongodb.net/ecowell?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Volunteer Schema
 const Volunteer = mongoose.model('Volunteer', {

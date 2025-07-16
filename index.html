@@ -27,6 +27,7 @@
                 <li class="nav-item"><a href="#donate" class="nav-link">Donate</a></li>
                 <li class="nav-item"><a href="#volunteers" class="nav-link">Volunteers</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="admin.html" class="nav-link" target="_blank">Admin</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -46,7 +47,7 @@
                 <h1 class="hero-title">Planet over Profit</h1>
                 <p class="hero-subtitle">ECOWELL WELFARE COUNCIL is a non-profit organization set up with an avowed objective of promoting environment welfare and other related ancillary welfare activities.<br><br>We are the first generation to feel the impact of climate change and the last generation that can do something about it. Saving Earth Today for Tomorrow is our first priority.</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary">Join Us</button>
+                    <a href="https://chat.whatsapp.com/CqAMAFdpiDg9jqTGXdayg0" target="_blank" class="btn btn-primary">Join Us</a>
                     <button class="btn btn-secondary">Our Mission</button>
                 </div>
             </div>
@@ -100,15 +101,6 @@
                             <h3>Vision Statement</h3>
                             <p>We are passionate for creating a Greener Earth and a Greater sustainable global future and aim to create awareness so as to contribute to making our earth climate neutral by 2030.</p>
                         </div>
-                        <div class="about-card">
-                            <i class="fas fa-trophy"></i>
-                            <h3>Our Goal</h3>
-                            <p>Global Sustainable Prosperity</p>
-                        </div>
-                    </div>
-                    <div class="about-intro">
-                        <h3>Introduction</h3>
-                        <p><strong>At ECOWELL, we believe Saving Earth Today for Tomorrow should be the first priority for every human being.</strong> We are committed to protecting water, air, and soil from harmful substances and to intensifying efforts to reduce, reuse, and recycle Earth's limited resources. Scientists have warned us about the impending extinction of earth and annihilation of all lives on earth. The time to act is now—together, we can make a difference for our planet and future generations.</p>
                     </div>
                 </div>
                 <div class="about-people">
@@ -162,44 +154,7 @@
                     <h2>Pollution Statistics</h2>
                     <p>Key indicators of environmental pollution affecting our planet. (Sample data shown below)</p>
                 </div>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <i class="fas fa-wind stat-icon"></i>
-                        <div class="stat-number">7M+</div>
-                        <div class="stat-label">Annual Deaths from Air Pollution</div>
-                        <div class="stat-desc">Air pollution is a leading environmental health risk worldwide.</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-tint stat-icon"></i>
-                        <div class="stat-number">2.2B</div>
-                        <div class="stat-label">People Lack Safe Drinking Water</div>
-                        <div class="stat-desc">Water pollution threatens health and access to clean water.</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-seedling stat-icon"></i>
-                        <div class="stat-number">33%</div>
-                        <div class="stat-label">Soil Degraded Globally</div>
-                        <div class="stat-desc">Soil pollution and degradation impact food security and ecosystems.</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-volume-up stat-icon"></i>
-                        <div class="stat-number">1.1B</div>
-                        <div class="stat-label">People Exposed to Unsafe Noise</div>
-                        <div class="stat-desc">Noise pollution affects urban populations and wildlife.</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-temperature-high stat-icon"></i>
-                        <div class="stat-number">1.5°C</div>
-                        <div class="stat-label">Global Warming Limit</div>
-                        <div class="stat-desc">Urgent action needed to keep warming below this threshold.</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-radiation stat-icon"></i>
-                        <div class="stat-number">Unknown</div>
-                        <div class="stat-label">Radiation Pollution</div>
-                        <div class="stat-desc">Radiation pollution is a growing concern in some regions.</div>
-                    </div>
-                </div>
+                <div class="stats-container" id="stats-container"></div>
             </div>
         </div>
     </section>
@@ -216,29 +171,7 @@
                 <h2>Blog & Articles</h2>
                 <p>Latest news, articles, and updates on global warming and environmental issues.</p>
             </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <i class="fas fa-globe blog-icon"></i>
-                    <div class="blog-meta">May 2024 • Climate Change</div>
-                    <h3 class="blog-title">Why 1.5°C Matters: The Race to Limit Global Warming</h3>
-                    <p class="blog-summary">Scientists warn that exceeding 1.5°C of warming could have catastrophic effects on our planet. Learn why this threshold is critical and what actions are needed to stay below it.</p>
-                    <a href="#" class="btn btn-secondary">Read More</a>
-                </div>
-                <div class="blog-card">
-                    <i class="fas fa-smog blog-icon"></i>
-                    <div class="blog-meta">April 2024 • Pollution</div>
-                    <h3 class="blog-title">The Hidden Dangers of Air Pollution in Urban Areas</h3>
-                    <p class="blog-summary">Air pollution is a silent killer, especially in cities. Discover the sources, health impacts, and what can be done to improve air quality for everyone.</p>
-                    <a href="#" class="btn btn-secondary">Read More</a>
-                </div>
-                <div class="blog-card">
-                    <i class="fas fa-tint blog-icon"></i>
-                    <div class="blog-meta">March 2024 • Conservation</div>
-                    <h3 class="blog-title">Protecting Water Resources: A Call to Action</h3>
-                    <p class="blog-summary">Water scarcity and pollution threaten billions worldwide. Explore solutions and how you can help protect this vital resource for future generations.</p>
-                    <a href="#" class="btn btn-secondary">Read More</a>
-                </div>
-            </div>
+            <div class="blog-grid" id="blog-container"></div>
         </div>
     </section>
 
@@ -301,9 +234,7 @@
                 <h2>Upcoming Events</h2>
                 <p>Join us at our upcoming campaigns, workshops, and community events.</p>
             </div>
-            <div class="events-coming-soon">
-                <p class="coming-soon-text">Our events and programs are coming soon! Stay tuned for updates on campaigns, workshops, and community activities as we launch ECOWELL WELFARE COUNCIL.</p>
-            </div>
+            <div class="events-coming-soon" id="events-container"></div>
         </div>
     </section>
 
